@@ -12,7 +12,7 @@ module.exports = {
       'standard'
     ],
     plugins: [
-      //'react'
+      'react',
     ],
     // add your custom rules here
     rules: {
