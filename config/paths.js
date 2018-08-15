@@ -51,7 +51,12 @@ module.exports = {
   appIndexJs: resolveApp('src/index.js'),
   appPackageJson: resolveApp('package.json'),
   appSrc,
-  appSrcs:[appSrc,resolveApp('service')],
+  appSrcs:[
+    appSrc,resolveApp('service'),
+    resolveApp('node_modules/apibus'),
+    resolveApp('node_modules/log4web'),
+    resolveApp('node_modules/hook-promise')
+  ],
   serviceIndexJs:resolveApp('service/index.js'),  //service入口
   yarnLockFile: resolveApp('yarn.lock'),
   testsSetup: resolveApp('src/setupTests.js'),

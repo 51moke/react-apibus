@@ -6,7 +6,6 @@ import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 import hook from 'hook-promise'
 import log4web from 'log4web'
-
 import {api} from 'apibus'
 
 let log = log4web('ui.index')
@@ -33,6 +32,7 @@ hook.call('init').then(res => {
       log.warn('err', err)
     })
 
+  log.debug('react init')
   ReactDOM.render(<App />, document.getElementById('root'))
   registerServiceWorker()
 })
