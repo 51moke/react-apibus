@@ -11,7 +11,10 @@ export class Demo {
     // log.warn('demo warn')
     // log.error('demo error')
     // log.fatal('demo fatal')
-    return 'demo'
+    return {status_code: 0}
+  }
+  test2 () {
+    return {status_code: 1, code: 'ERR_TEST', description: 'err test'}
   }
 }
 
