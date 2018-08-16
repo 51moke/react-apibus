@@ -8,6 +8,8 @@ import hook from 'hook-promise'
 import log4web from 'log4web'
 import {api} from 'apibus'
 
+// import demo from './demo'
+
 let log = log4web('ui.index')
 
 log.time('init')
@@ -35,4 +37,9 @@ hook.call('init').then(res => {
   log.debug('react init')
   ReactDOM.render(<App />, document.getElementById('root'))
   registerServiceWorker()
+})
+
+import('./demo').then(res => {
+  let demo = res.default
+  log.debug(demo())
 })
