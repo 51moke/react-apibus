@@ -7,3 +7,12 @@ it('renders without crashing', () => {
   ReactDOM.render(<App />, div)
   ReactDOM.unmountComponentAtNode(div)
 })
+
+it('demo', () => {
+
+})
+
+// describe('actions', () => {
+//   it('should return object when invoked', () => { })
+//   // 可以有更多的 it函数调用
+// })

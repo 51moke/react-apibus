@@ -16,14 +16,16 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx,mjs}"
+      "src/**/*.{js,jsx,mjs}",
+      "service/**/*.js"
     ],
     "setupFiles": [
       "<rootDir>/config/polyfills.js"
     ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
-      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
+      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}",
+      "<rootDir>/service/**/?(*.)(test).{js}"
     ],
     "testEnvironment": "node",
     "testURL": "http://localhost",
@@ -33,7 +35,7 @@
       "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
     "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
+      "[/\\\\]node_modules[/\\\\](?!log4web)(?!apibus)(?!hook-promise).+\\.(js|jsx|mjs)$"
     ],
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
