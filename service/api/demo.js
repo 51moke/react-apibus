@@ -16,8 +16,11 @@ export class Demo {
     }
     return {status_code: 1, description: 'des...'}
   }
-  test2 () {
-    return {status_code: 1, code: 'ERR_TEST', description: 'err test'}
+  rejects () {
+    return {status_code: 1, code: 'ERR_TEST', description: 'err rejects'}
+  }
+  resolves () {
+    return {status_code: 0}
   }
 }
 

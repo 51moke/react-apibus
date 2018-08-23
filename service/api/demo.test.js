@@ -6,7 +6,7 @@ describe('demo.js', () => {
     demo.test().then(res => {
       expect(res.status_code === 0 || (res.status_code === 1 && res.description && typeof res.description === 'string')).toBe(true)
     })
-
+    expect(demo.rejects()).resolves.toEqual({status_code: 1, code: 'ERR_TEST', description: 'err rejects'})
     // expect(demo.test()).resolves.toEqual({status_code: 0})
   })
 })

@@ -26,7 +26,7 @@ hook.call('init').then(res => {
       log.warn('err', err)
     })
 
-  api.Demo.test2()
+  api.Demo.rejects()
     .then(res => {
       log.debug('res', res)
     })
