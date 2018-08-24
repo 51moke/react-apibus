@@ -18,7 +18,8 @@
     "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js",
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,mjs}",
-      "service/**/*.js"
+      "service/**/*.js",
+      "!src/registerServiceWorker.js"
     ],
     "setupFiles": [
       "<rootDir>/config/polyfills.js"
