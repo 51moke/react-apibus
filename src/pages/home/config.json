@@ -1,0 +1,40 @@
+{
+  "router": {
+    "reducer": [
+      "Reducer.js"
+    ],
+    "exact": true,
+    "path": "home",
+    "params": "",
+    "child": [
+      {
+        "reducer": [
+          "Reducer.js"
+        ],
+        "exact": true,
+        "path": "aaaa",
+        "params": "",
+        "child": []
+      },
+      {
+        "reducer": [
+          "Reducer.js"
+        ],
+        "exact": true,
+        "path": "bbbb",
+        "params": "",
+        "child": [
+          {
+            "reducer": [
+              "Reducer.js"
+            ],
+            "exact": true,
+            "path": "cccc111",
+            "params": "",
+            "child": []
+          }
+        ]
+      }
+    ]
+  }
+}

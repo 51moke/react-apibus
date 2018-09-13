@@ -1,5 +1,6 @@
 import apibus from 'apibus'
 import React from 'react'
+import PropTypes from 'prop-types'
 import log4web from 'log4web'
 let log = log4web('aaaaaaaaa')
 
@@ -8,11 +9,16 @@ window.onData = onData
 
 class onCollect extends React.Component {
   componentWillMount () {
-    log.debug('装载', this.props.id, this.props.children.type)
     let id = this.props.id
-    let type = this.props.children.type
     let name = this.props.name
     let children = this.props.children
+    if (!children) {
+      log.error('onColler子级不可以为空')
+
+      return
+    }
+    let type = children.type
+    log.debug('装载', this.props.id, type)
 
     onData[id] = {
       type,
@@ -20,7 +26,7 @@ class onCollect extends React.Component {
     }
     let isOnClick = (type !== 'input')
     if (isOnClick) {
-      let onClick = this.props.children.props.onClick
+      let onClick = children.props.onClick
       onData[id].onClick = onClick
       onData[id].on = 'onClick'
       let props = {
@@ -63,6 +69,12 @@ class onCollect extends React.Component {
     // log.debug('更新!!!!!!!!!!!!!')
     return <React.Fragment>{this.children}</React.Fragment>
   }
+}
+
+onCollect.propTypes = {
+  children: PropTypes.element.isRequired,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string
 }
 
 apibus.SetStore('onCollect', onCollect)

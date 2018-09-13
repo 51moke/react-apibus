@@ -3,5 +3,6 @@
 /dist/
 /build/
 /src/registerServiceWorker.js
+/src/template/
 /public/
 /*.js

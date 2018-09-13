@@ -1,0 +1,10 @@
+{
+  "pages": {
+    "watchPath": "pages/",
+    "tplPath": "template/pages/"
+  },
+  "modules": {
+    "watchPath": "modules/",
+    "tplPath": "template/modules/"
+  }
+}

@@ -8,30 +8,20 @@ import {
   Switch
 } from 'react-router-dom'
 
-import { Store } from './Redux'
+import { Store } from './redux'
 import { Provider } from 'react-redux'
 import createHistory from 'history/createHashHistory'
 import { store } from 'apibus'
+import P404 from './error/p404'
 import log4web from 'log4web'
 
 let log = log4web('ui.App')
-
-class P404 extends Component {
-  shouldComponentUpdate (nextProps, nextState) {
-    log.debug('更新！！！！！！！！！！')
-    return false
-  }
-  render () {
-    log.debug('渲染！！！！！！！！！！！！！！！！')
-    return <div>404</div>
-  }
-}
 
 class Main extends Component {
   constructor () {
     super()
     this.state = {
-      title: '默认标题'
+      title: '默认标题!!!!!!!!'
     }
   }
   updated () {
@@ -40,6 +30,8 @@ class Main extends Component {
     })
   }
   render () {
+    log.debug('props', this.props)
+    let { match } = this.props
     return (
       <div>
         <h1>{this.state.title}</h1>
@@ -65,6 +57,7 @@ class Main extends Component {
               log.debug('input', el.target.value)
             }} />
         </store.onCollect>
+        <Switch><Route exact path={`${match.url}/demo/:id`} component={Demo} /></Switch>
       </div>
     )
   }
@@ -75,6 +68,7 @@ let Demo = (...props) => {
   return <div>demo</div>
 }
 
+// 监听路由变化
 let watchRouter = () => {
   let _history = createHistory()
   let pathname = _history.location.pathname
@@ -99,7 +93,7 @@ class App extends Component {
           <div className="app-page">
             <Router>
               <Switch>
-                <Route exact path="/main" component={Main} />
+                <Route path="/main" component={Main} />
                 <Route exact path="/demo" component={Demo} />
                 <Route component={P404} />
               </Switch>
