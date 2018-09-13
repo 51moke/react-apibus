@@ -11,7 +11,7 @@ import {
 import { Store } from './redux'
 import { Provider } from 'react-redux'
 import createHistory from 'history/createHashHistory'
-import { store } from 'apibus'
+import { G } from 'apibus'
 import P404 from './error/p404'
 import log4web from 'log4web'
 
@@ -35,19 +35,19 @@ class Main extends Component {
     return (
       <div>
         <h1>{this.state.title}</h1>
-        <store.onCollect id="App.demo1" name="点击按钮测试">
+        <G.onCollect id="App.demo1" name="点击按钮测试">
           <span onClick={() => {
             this.updated()
             log.debug('被点击了！！！！！！！！！！！！！11111111111111!!!!!!!!!!!!')
             return Promise.resolve()
           }}>10000</span>
-        </store.onCollect>
-        <store.onCollect id="App.demo2" name="点击按钮测试">
+        </G.onCollect>
+        <G.onCollect id="App.demo2" name="点击按钮测试">
           <span onClick={() => {
             log.debug('被点击了！！！！！！！！！！！！！22222222222222!!!!!!!!!!!')
           }}>10000</span>
-        </store.onCollect>
-        <store.onCollect id="App.demo3" name="输入框测试">
+        </G.onCollect>
+        <G.onCollect id="App.demo3" name="输入框测试">
           <input type="text"
 
             onKeyPress={(el) => {
@@ -56,7 +56,7 @@ class Main extends Component {
             onChange={(el) => {
               log.debug('input', el.target.value)
             }} />
-        </store.onCollect>
+        </G.onCollect>
         <Switch><Route exact path={`${match.url}/demo/:id`} component={Demo} /></Switch>
       </div>
     )

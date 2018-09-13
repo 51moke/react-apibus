@@ -77,4 +77,4 @@ onCollect.propTypes = {
   name: PropTypes.string
 }
 
-apibus.SetStore('onCollect', onCollect)
+apibus.SetGlobal('onCollect', onCollect)
